@@ -4,7 +4,7 @@
 	"name": "LiveNote",
 	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
 	"image": "mcr.microsoft.com/devcontainers/typescript-node:5-24-trixie",
-	"forwardPorts": [5173, 8080],
+	"forwardPorts": [5173, 5045],
 
 	"portsAttributes": {
 		"5173": {
@@ -13,7 +13,7 @@
 			"protocol": "http",
 			"requireLocalPort": false
 		},
-		"8080": {
+		"5045": {
 			"label": "Backend API",
 			"onAutoForward": "notify",
 			"protocol": "http",
