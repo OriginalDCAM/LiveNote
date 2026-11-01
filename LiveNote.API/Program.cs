@@ -14,28 +14,14 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-var summaries = new[]
+var apiItems = app.MapGroup("/api");
+apiItems.MapGet("/notes", () => new[]
 {
-    "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-};
-
-app.MapGet("/weatherforecast", () =>
-    {
-        var forecast = Enumerable.Range(1, 5).Select(index =>
-                new WeatherForecast
-                (
-                    DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-                    Random.Shared.Next(-20, 55),
-                    summaries[Random.Shared.Next(summaries.Length)]
-                ))
-            .ToArray();
-        return forecast;
-    })
-    .WithName("GetWeatherForecast");
+    new Note(1, "Welcome to LiveNote", "This is your first note. Notes show up as cards on the home page.", DateTime.UtcNow.AddHours(-2)),
+    new Note(2, "Groceries", "Milk\nEggs\nBread\nCoffee", DateTime.UtcNow.AddDays(-1)),
+    new Note(3, "Ideas", "Real-time sync between clients, markdown support, and tags.", DateTime.UtcNow.AddDays(-3))
+});
 
 app.Run();
 
-record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
-{
-    public int TemperatureF => 32 + (int) (TemperatureC / 0.5556);
-}
+record Note(int Id, string Title, string Content, DateTime UpdatedAt);

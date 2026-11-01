@@ -1,0 +1,12 @@
+services:
+  dev:
+    image: mcr.microsoft.com/devcontainers/typescript-node:5-24-trixie
+    volumes:
+      - .:/workspaces/LiveNote:cached
+    command: sleep infinity
+    environment:
+      ConnectionStrings__MongoDb: mongodb://user:root@mongo:27017
+    networks:
+      - livenote.mongodb.network
+    depends_on:
+      - mongodb
