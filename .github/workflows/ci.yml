@@ -2,7 +2,9 @@ name: Build (ci)
 
 run-name: ${{ github.actor }} is running the build workflow
 
-on: [ push ]
+on:
+  push: 
+    branches: [ main ]
 
 jobs:
   build:
