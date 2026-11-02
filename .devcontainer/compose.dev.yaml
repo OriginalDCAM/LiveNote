@@ -5,7 +5,7 @@ services:
       - .:/workspaces/LiveNote:cached
     command: sleep infinity
     environment:
-      ConnectionStrings__MongoDb: mongodb://user:root@mongo:27017
+      ConnectionStrings__MongoDb: mongodb://user:root@mongodb:27017
     networks:
       - livenote.mongodb.network
     depends_on:

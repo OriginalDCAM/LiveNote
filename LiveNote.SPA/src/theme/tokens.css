@@ -1,0 +1,102 @@
+/*
+ * Design tokens. Components should only reference the semantic tokens
+ * (--color-*, --space-*, --radius-*, ...), never the raw palette, so the
+ * whole app can be re-themed by changing this file.
+ */
+:root {
+  /* Palette */
+  --green-25: #fafdfb;
+  --green-50: #f0faf3;
+  --green-100: #dcf2e3;
+  --green-200: #b9e4c8;
+  --green-300: #8ccfa6;
+  --green-400: #5bb47f;
+  --green-500: #3a9862;
+  --green-600: #2b7a4e;
+  --green-700: #246140;
+  --green-800: #1f4e35;
+  --green-900: #1a402d;
+  --green-950: #0d2418;
+
+  --neutral-0: #ffffff;
+  --neutral-50: #f7f9f7;
+  --neutral-100: #eef2ef;
+  --neutral-200: #dfe5e0;
+  --neutral-500: #66736b;
+  --neutral-700: #39433d;
+  --neutral-800: #222a25;
+  --neutral-900: #151a17;
+  --neutral-950: #0e120f;
+
+  --red-500: #d64545;
+  --red-300: #f08a8a;
+
+  /* Semantic colors (light) */
+  --color-bg: var(--green-25);
+  --color-surface: var(--neutral-0);
+  --color-surface-muted: var(--green-50);
+  --color-border: var(--neutral-200);
+  --color-text: var(--neutral-500);
+  --color-text-strong: var(--neutral-900);
+  --color-primary: var(--green-600);
+  --color-primary-hover: var(--green-700);
+  --color-primary-contrast: var(--neutral-0);
+  --color-primary-subtle: var(--green-100);
+  --color-primary-border: var(--green-300);
+  --color-danger: var(--red-500);
+  --color-brand-gradient: linear-gradient(135deg, var(--green-400), var(--green-700));
+
+  /* Typography */
+  --font-sans: system-ui, 'Segoe UI', Roboto, sans-serif;
+  --font-heading: var(--font-sans);
+  --font-mono: ui-monospace, Consolas, monospace;
+  --text-xs: 13px;
+  --text-sm: 14px;
+  --text-md: 16px;
+  --text-lg: 20px;
+  --text-xl: 24px;
+  --text-2xl: 36px;
+
+  /* Spacing */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-12: 48px;
+
+  /* Shape & elevation */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-full: 999px;
+  --shadow-sm: 0 1px 2px rgba(26, 64, 45, 0.06);
+  --shadow-md: 0 10px 15px -3px rgba(26, 64, 45, 0.12), 0 4px 6px -2px rgba(26, 64, 45, 0.06);
+
+  --transition: 0.2s ease;
+  --container-width: 1126px;
+
+  color-scheme: light dark;
+}
+
+/* Semantic colors (dark) */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: var(--neutral-800);
+    --color-surface: var(--neutral-700);
+    --color-surface-muted: var(--green-950);
+    --color-border: #4a564e;
+    --color-text: #a3b0a8;
+    --color-text-strong: var(--neutral-100);
+    --color-primary: var(--green-400);
+    --color-primary-hover: var(--green-300);
+    --color-primary-contrast: var(--green-950);
+    --color-primary-subtle: rgba(91, 180, 127, 0.15);
+    --color-primary-border: var(--green-700);
+    --color-danger: var(--red-300);
+
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+    --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -2px rgba(0, 0, 0, 0.3);
+  }
+}

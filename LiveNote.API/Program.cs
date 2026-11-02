@@ -1,5 +1,11 @@
+using MongoDB.Driver;
+
 var builder = WebApplication.CreateBuilder(args);
 
+var connectionString = builder.Configuration.GetConnectionString("MongoDB")
+    ?? throw new InvalidOperationException("Connection string 'MongoDB' not found");
+
+builder.Services.AddSingleton<MongoClient>(_ => new MongoClient(connectionString));
 // Add services to the container.
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
